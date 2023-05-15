@@ -7,6 +7,8 @@ import { Counter } from "./components/Counter";
 import { JobList } from "./components/JobList";
 import { JobForm } from "./components/JobForm";
 
+import GithubRepos from './components/Repos';
+
 function App() {
 
   const [jobs, setJobs] = useState( [
@@ -66,7 +68,7 @@ function App() {
         </div>
       </div>
       <div>
-        <Counter/>
+        <GithubRepos/>
       </div>
     </div>
   );
