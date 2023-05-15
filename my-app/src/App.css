@@ -46,3 +46,11 @@
   flex-direction: row;
   gap: 10px;
 }
+
+.jobs h2 {
+  font-size: 20px;
+}
+
+.jobs h3 {
+  font-size: 16px;
+}

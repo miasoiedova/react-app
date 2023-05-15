@@ -1,7 +1,35 @@
 import './App.css';
 import { ImageComponent } from "./components/ImageComponent.js";
 
+import { useState } from "react";
+
+import { Counter } from "./components/Counter";
+import { JobList } from "./components/JobList";
+import { JobForm } from "./components/JobForm";
+
 function App() {
+
+  const [jobs, setJobs] = useState( [
+    {
+      id: 1,
+      title: "AbInbevEfes",
+      description: "Working with different types of accounting documents. Asssesing and solving the most crucial problems. Working with annual reports.",
+      name: "Specialist of financial reporting",
+      link: "https://abinbevefes.com.ua/"
+    },
+    {
+      id: 2,
+      title: "PrivatBank",
+      description: "Working with new clients of the bank. Promote banking products.",
+      name: "Sales Manager",
+      link: "https://privatbank.ua/"
+    },
+  ]);
+  
+  const addJob = (job) => {
+    setJobs([...jobs, job]);
+  };
+
   return (
     <div className="main">
       <div className="info">
@@ -29,19 +57,16 @@ function App() {
         </div>
       </div>
       <div className="jobs">
-        <h2>Work Experience</h2>
+        <h1>Work Experience</h1>
         <div>
-          <p><span>Name of employer:</span><a href="https://abinbevefes.com.ua/">AbInbevEfes</a> <br />
-            <span>Dates of employment:</span>04/2021 - present<br />
-            <span>Job title:</span>Financial specialist<br />
-            <span>Project/Role description:</span>Working with different types of accounting documents. Asssesing and solving the most crucial problems. Working with annual reports.
-          </p>
-          <p><span>Name of employer:</span> <a href="https://privatbank.ua/">PrivatBank</a> <br />
-            <span>Dates of employment:</span>08/2020 - 02/2021<br />
-            <span>Job title:</span>Sales Manager <br />
-            <span>Project/Role description:</span>Working with new clients of the bank. Promote banking products.
-          </p>
+          <JobList jobs={jobs}/>
         </div>
+        <div>
+          <JobForm onAddJob={addJob} />
+        </div>
+      </div>
+      <div>
+        <Counter/>
       </div>
     </div>
   );
